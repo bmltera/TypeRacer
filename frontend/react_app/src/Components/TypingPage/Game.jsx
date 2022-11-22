@@ -235,10 +235,12 @@ const Game = (props)  => {
             {(props.words != null && props.words.length > 0 &&
                 <Button variant="contained" onClick={() => {props.setTriggerReset(true)}}>Restart</Button>
             )}
-            <GameTimer time = {props.time} gamemode = {props.gamemode} active={isTimerActive} timer={timer} setTimer={setTimer}/>
-            {(props.words != null && props.words.length > 0 && !isGameActive && !isGameFinished &&
-                <div>Click Word Display to Start</div>
-            )}
+            <div className='displayContainer'>
+                <GameTimer time = {props.time} gamemode = {props.gamemode} active={isTimerActive} timer={timer} setTimer={setTimer}/>
+                {(props.words != null && props.words.length > 0 && !isGameActive && !isGameFinished &&
+                    <div>Click Word Display to Start</div>
+                )}
+            </div>
             {(props.words != null && props.words.length > 0 &&
                 <div className="wordsDisplay" onMouseUp={startGame}>
                     {wordList}
